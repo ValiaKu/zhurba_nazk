@@ -1,0 +1,339 @@
+html {
+  font-size: 62.5%;
+}
+body * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Inter, Arial, Helvetica, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fffffa;
+}
+h1 {
+  font-size: 60px;
+  background: transparent url(./images/icons.png) no-repeat right center;
+  padding-right: 270px;
+  width: fit-content;
+}
+h2 {
+  font-size: 40px;
+  font-weight: 400;
+}
+.top-box {
+  padding: 80px 100px;
+}
+.bubble {
+  background: url(./images/bubble_left.svg) no-repeat;
+  padding: 10px;
+  font-size: 16px;
+  width: 200px;
+  min-width: 200px;
+  background-color: #fff;
+  text-align: center;
+  background-size: contain;
+  height: 110px;
+}
+.bubble-left {
+  margin-right: 40px;
+}
+.bubble-right {
+  background: url(./images/bubble_right.svg) no-repeat;
+  margin-left: 40px;
+  background-size: contain;
+}
+.main-wrapper {
+  background-image: url(images/base.svg), url(images/zhurba.svg);
+  background-position: left 130px, right 130px;
+  background-repeat: no-repeat, no-repeat;
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  position: relative;
+}
+.question {
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.quiz-container {
+  width: 80%;
+  margin: 0 auto;
+}
+.action-btns {
+  display: flex;
+  justify-content: space-between;
+}
+..action-btns .quiz-container > div {
+  margin: 20px;
+}
+.quiz-container > .options-box {
+  width: 700px;
+  margin: 100px auto 0;
+  padding-bottom: 160px;
+}
+.each-answer {
+  margin: 10px 0%;
+  font-size: 16px;
+  font-weight: 500;
+}
+.each-answer label,
+.each-answer input {
+  cursor: pointer;
+}
+.each-answer label {
+  margin-left: 5px;
+}
+.each-answer input:checked + label {
+  font-weight: bold;
+}
+.path-box {
+  border-bottom: solid 1px #000;
+  display: flex;
+  justify-content: space-between;
+  height: 15px;
+  width: 60%;
+  align-self: flex-start;
+  margin-top: 30px;
+}
+.prev,
+.next {
+  padding: 5px 10px;
+  margin: 2px 0%;
+  background-color: transparent;
+  color: #000;
+  border: 0 none;
+  cursor: pointer;
+  font-size: 12px;
+}
+.prev:hover,
+.next:hover,
+.prev:active,
+.next:active,
+.prev:focus,
+.next:focus {
+  color: #328ed0;
+}
+.prev {
+  padding-left: 30px;
+  background: transparent url(./images/arrow.svg) no-repeat left center;
+}
+.next {
+  padding-right: 30px;
+  background: transparent url(./images/arrow-next.svg) no-repeat right center;
+}
+.action-btns .result-text::after {
+  content: " ";
+  width: 200px;
+  height: 600px;
+  background-color: #fffffa;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.action-btns.zhurbaStyle .result-text::after {
+  left: 0;
+  top: 0;
+  right: auto;
+  width: 320px;
+}
+.action-btns .result-text {
+  margin-top: 200px;
+  min-height: 150px;
+}
+.action-btns.zhurbaStyle .result-text {
+  min-height: 550px;
+  padding-left: 170px;
+  margin-top: 100px;
+}
+
+.answers-container {
+  border: solid 1px gainsboro;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 10px auto 20px;
+  background-color: #fff;
+}
+.prev-next {
+  background-color: #f9b403;
+  padding: 8px 16px;
+  border-radius: 9px;
+  color: #000;
+  font-size: 16px;
+  border: 0 none;
+  border: solid 2px #f9b403;
+  transition: 0.3s;
+}
+.prev-next:hover,
+.prev-next:active,
+.prev-next:focus {
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/*  */
+.active {
+  background-color: white;
+  color: #000;
+  border: 0 none;
+}
+.jumper-button {
+  border: solid 2px #000;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: relative;
+  top: 9px;
+  cursor: pointer;
+}
+.jumper-button.active {
+  background-color: #000;
+}
+.result-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.result-text {
+  font-size: 50px;
+  line-height: 1;
+  padding: 0 30px;
+  text-align: center;
+  align-self: center;
+}
+.result-details {
+  display: inline-flex;
+  justify-content: center;
+}
+.result-details > div {
+  margin: 20px;
+}
+.score-box {
+  font-size: 40px;
+  font-weight: 700;
+  color: #328ed0;
+  display: flex;
+  justify-content: space-between;
+}
+.score-box > div {
+  width: 250px;
+  margin: 50px;
+  text-align: center;
+}
+.score-box .zhurba-score {
+  color: #fb4848;
+}
+.answers-container.two-columns {
+  column-count: 2;
+}
+/*map*/
+#container {
+  height: 500px;
+  min-width: 310px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.loading {
+  margin-top: 10em;
+  text-align: center;
+  color: gray;
+}
+.social-box > div {
+  margin: 80px auto;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+.social-box span {
+  font-size: 14px;
+  font-weight: bold;
+}
+.social-box > div > * {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .top-box {
+    padding: 20px;
+  }
+  h1 {
+    font-size: 18px;
+    padding-right: 110px;
+    background-size: 100px;
+  }
+  h2 {
+    font-size: 12px;
+    line-height: 1;
+    margin-top: 10px;
+  }
+  .bubble {
+    position: absolute;
+    position: absolute;
+    top: 300px;
+    min-width: 180px;
+    width: 180px;
+    font-size: 14px;
+  }
+  .quiz-container > .options-box {
+    margin-top: 0;
+    width: 100%;
+    padding-bottom: 600px;
+  }
+  .main-wrapper {
+    background-position: -140% 410px, 110% 410px;
+  }
+  .score-box > div {
+    width: fit-content;
+  }
+  .question {
+    font-size: 16px;
+  }
+  .bubble-left {
+    left: 10px;
+  }
+  .bubble-right {
+    right: 10px;
+  }
+  .path-box {
+    margin-top: 0;
+    margin-bottom: 50px;
+    width: 100%;
+  }
+  .answers-container {
+    margin-bottom: 5px;
+  }
+  .answers-container.two-columns {
+    column-count: auto;
+    height: 165px;
+    overflow: auto;
+  }
+  .action-btns .result-text {
+    font-size: 14px;
+    font-weight: bold;
+    height: 300px;
+    background-image: url(images/base.svg);
+    background-position: left 0;
+    background-repeat: no-repeat;
+    background-size: 50%;
+  }
+  .action-btns.zhurbaStyle .result-text {
+    background-image: url(images/zhurba.svg);
+    background-image: url(images/zhurba.svg);
+    margin-top: 0;
+    height: 300px;
+    min-height: 300px;
+    background-size: 50%;
+    padding-left: 0;
+    padding-right: 50%;
+    background-position: top right;
+  }
+
+  .action-btns .result-text::after,
+  .action-btns.zhurbaStyle .result-text::after {
+    display: none;
+  }
+}

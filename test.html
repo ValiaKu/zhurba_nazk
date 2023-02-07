@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script   src="https://code.jquery.com/jquery-3.6.3.min.js"   integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="   crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <div>
+    <div class="top-box">
+      <h1>#ЗАДОВБАЛО_ТЕСТ</h1>
+      <h2>Пройдіть тест на знання хто ви з цих героїв?</h2>
+    </div>
+
+    <div class="main-wrapper">
+      <div class="quiz-container" id="quiz-container"></div>
+
+    </div>
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Загальні результати, тягнуться з бази -->
+    <div class="score-box">
+      <div class="base-score" id="baseScore">10</div>
+      <div class="zhurba-score" id="zhurbaScore">3</div>
+    </div>
+
+    <div class="map-box">
+      <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+      <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+
+      <div id="container"></div>
+
+      <script>
+       (async () => {
+
+        const topology = await fetch(
+            'https://code.highcharts.com/mapdata/countries/ua/ua-all.topo.json'
+        ).then(response => response.json());
+
+        // Prepare demo data. The data is joined to map using value of 'hc-key'
+        // property by default. See API docs for 'joinBy' for more info on linking
+        // data and map.
+        const data = [
+            ['ua-my', 10], ['ua-ks', 11], ['ua-kc', 12], ['ua-zt', 13],
+            ['ua-sm', 14], ['ua-dt', 15], ['ua-dp', 16], ['ua-kk', 17],
+            ['ua-lh', 18], ['ua-pl', 19], ['ua-zp', 20], ['ua-sc', 21],
+            ['ua-kr', 22], ['ua-ch', 23], ['ua-rv', 24], ['ua-cv', 25],
+            ['ua-if', 26], ['ua-km', 27], ['ua-lv', 28], ['ua-tp', 29],
+            ['ua-zk', 30], ['ua-vo', 31], ['ua-ck', 32], ['ua-kh', 33],
+            ['ua-kv', 34], ['ua-mk', 35], ['ua-vi', 36]
+        ];
+
+        // Create the chart
+        Highcharts.mapChart('container', {
+          chart: {
+              map: topology
+          },
+          title: {
+              text: 'Наші герої'
+          },
+          mapNavigation: {
+              enabled: true,
+              buttonOptions: {
+                  verticalAlign: 'bottom'
+              }
+          },
+          colorAxis: {
+              min: 0
+          },
+
+          series: [{
+              data: data,
+              name: 'Random data',
+              states: {
+                  hover: {
+                      color: '#fff'
+                  }
+              },
+              dataLabels: {
+                  enabled: true,
+                  format: '{point.name}'
+              }
+          }]
+      });
+
+      })();
+      </script>
+
+    </div>
+
+    <!-- соц мережі-->
+    <div class="social-box">
+      <div>
+        <span>Розкажи про тест </span>
+        <a href=""><img src="./images/fb.svg"></a>
+        <a href=""><img src="./images/insta.svg"></a>
+        <a href=""><img src="./images/twitter.svg"></a>
+      </div>
+    </div>
+  </body>
+</html>
