@@ -107,20 +107,41 @@ const submitQuiz = () => {
         "Візьми себе в руки! Ти потрібен, щоб перемогти москаля. Повертайся завтра і пройди тест ще раз та докажи всім, що ти наша опора.";
       basaStyle = "";
     }
+    /*
+    <br /><br /><br />
+    <div style="font-size: 14px;">
+      Журба = ${countZhurba}
+      <br />База = ${countBasa}
+      <br /> Область = ${oblast}
+      <br /> Стать = ${gender}
+    </div>
+    */
     quizContainer.innerHTML = `<div class="result-wrapper">
        <div class="action-btns ${zhurbaStyle}">
         <div class="result-text">
           ${resultText} 
-          <br /><br /><br />
-          <div style="font-size: 14px;">
-            Журба = ${countZhurba}
-            <br />База = ${countBasa}
-            <br /> Область = ${oblast}
-            <br /> Стать = ${gender}
-          </div>
         </div>
       </div>
     </div>`;
+    $.ajax({
+      url: "/set_response.php",
+      method: "post",
+      dataType: "json",
+      data: {
+        countZhurba: countZhurba,
+        countBasa: countBasa,
+        region: oblast,
+        gender: gender,
+      },
+      success: function (data) {
+        console.log(data);
+      },
+      error: function (xhr, ajaxOptions, thrownError) {
+        console.log(
+          thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText
+        );
+      },
+    });
   }
 };
 
